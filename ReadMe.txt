@@ -1,4 +1,4 @@
-Informational page with order form for "The Pursuit of Hoppiness" (www.hoppines.uk), a bespoke bottle label design company.
+Informational page with order form for "The Pursuit of Hoppiness" (www.hoppiness.uk), a bespoke bottle label design company.
 
 Created using:
 
