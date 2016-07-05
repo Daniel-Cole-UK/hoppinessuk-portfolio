@@ -1,0 +1,547 @@
+body {
+    font-family: 'Raleway',sans-serif;
+    font-size: 2em;
+}
+
+.fadeIn {
+    -webkit-animation-duration: 4s;
+    animation-duration: 4s;
+}
+
+.fadeInDown {
+    -webkit-animation-duration: 1s;
+    -webkit-animation-delay: 1.5s;
+    animation-duration: 1s;
+    animation-delay: 1.5s;
+}
+
+.title {
+    margin-top: 2vh;
+    font-size: 2.8em;
+}
+
+.landing {
+    background: url(/img/wooden_background.jpg) center center no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-color: #000;
+}
+
+.about {
+    -webkit-background-image: linear-gradient(#0f3e3e,#1e7b7b);
+    background-image: linear-gradient(#0f3e3e,#1e7b7b);
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-color: #1e7b7b;
+}
+
+#backArrow {
+    position: fixed;
+    top: 50%;
+    right: 43%;
+    transform: translate(-50%,-50%);
+}
+
+.fa-angle-left {
+    font-size: 4em !important;
+    color: #ff7f50 !important;
+}
+
+.logo {
+/*----Only used by media queries*/
+}
+
+#error-messages {
+    font-weight: 700;
+}
+
+.order {
+    background-color: #e7e5e4;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 3em;
+}
+
+.orderH1 {
+    font-weight: 700;
+    color: #ff7f50;
+}
+
+p {
+    font-weight: 400;
+    font-size: 1.1em;
+}
+
+.thickP {
+    font-weight: 700;
+}
+
+.mobileLargerFont {
+    font-size: 1.3em;
+}
+
+.darkP {
+    color: #000;
+}
+
+.numbers {
+    font-weight: 700;
+    font-size: 1.5em;
+    color: #000;
+    text-shadow: none important!;
+}
+
+.spam {
+    font-weight: 700;
+    font-size: .8em;
+    color: #a9a9a9;
+}
+
+#bottleFade {
+    -webkit-animation-duration: 1s;
+    -webkit-animation-delay: 1.5s;
+    animation-duration: 1s;
+    animation-delay: 1.5s;
+}
+
+#bottle {
+    height: 180px;
+    width: 90px;
+    position: relative;
+    top: 1px;
+    -webkit-animation: bounce 1s infinite;
+    animation: bounce 1s infinite;
+    -webkit-animation-delay: 3s;
+    animation-delay: 3s;
+}
+
+#interested {
+    padding-bottom: 2vh;
+    font-size: 1.3em;
+}
+
+.bottlesImage {
+    padding-bottom: 3vh;
+}
+
+.buttons {
+    outline: none;
+    border-width: 3px;
+    border-color: #fff;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #fff;
+    background-color: transparent;
+    transition: all;
+}
+
+.touch .buttons:hover {
+    outline: none;
+    border-width: 3px;
+    border-color: #fff;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #fff;
+    background-color: transparent;
+}
+
+.buttons:hover {
+    outline: none;
+    border-color: #fff;
+    color: #000;
+    background-color: #fff;
+}
+
+.no-touch .buttons:target {
+    outline: none;
+    border-color: #fff;
+    color: #fff;
+    background-color: #476b6b;
+}
+
+.no-touch .buttons:active {
+    outline: none;
+    border-color: #fff;
+    color: #fff;
+    background-color: #476b6b;
+}
+
+.no-touch .buttons:focus {
+    outline: none;
+    border-color: #fff;
+    color: #fff;
+    background-color: #476b6b;
+}
+
+.no-touch .buttons:active:focus {
+    outline: none;
+    border-color: #fff;
+    color: #fff;
+    background-color: #334d4d;
+}
+
+.section {
+    text-align: center;
+    color: #fff;
+}
+
+.fa {
+    font-size: 2.2em;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 1vh;
+}
+
+a:link {
+    color: #fff;
+}
+
+a:visited {
+    color: #fff;
+}
+
+a:active {
+    color: #fff;
+}
+
+a:hover {
+    color: #d3d3d3;
+}
+
+.alertHidden {
+    display: none;
+}
+
+.control-label {
+    font-weight: 400;
+    color: #000;
+    font-size: .7em;
+    text-align: right;
+}
+
+form {
+    border-style: solid;
+    border-color: #2f4f4f;
+    border-width: 1px;
+    border-radius: 10px;
+    padding-top: 3vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-bottom: 5vh;
+    background-color: #fff;
+}
+
+.datepicker table tr td {
+    border-radius: 0;
+}
+
+.datepicker table tr td.disabled,.datepicker table tr td.disabled:hover {
+    background-color: rgba(0,0,0,0.2);
+    color: #fff;
+}
+
+.checkbox {
+    text-align: left;
+    font-weight: 400;
+    color: #000;
+    font-size: .7em;
+}
+
+.smallLegend {
+    font-size: .8em;
+}
+
+.formNotes {
+    text-align: left;
+}
+
+@-webkit-keyframes bounce {
+    0% {
+        top: 1px;
+    }
+
+    50% {
+        top: 13px;
+    }
+
+    100% {
+        top: 1px;
+    }
+}
+
+@keyframes bounce {
+    0% {
+        top: 1px;
+    }
+
+    50% {
+        top: 13px;
+    }
+
+    100% {
+        top: 1px;
+    }
+}
+
+/* ---- XS grid ----*/
+@media only screen and (max-width: 767px) {
+    #bottle {
+        height: 100px;
+        width: 50px;
+        position: relative;
+        bottom: 1px;
+        -webkit-animation: bounce 1s infinite;
+        animation: bounce 1s infinite;
+        -webkit-animation-delay: 3s;
+        animation-delay: 3s;
+    }
+
+    .formBorder {
+        border-style: solid !important;
+        border-width: 2px !important;
+        border-color: #2f4f4f;
+    }
+
+    .opaque {
+        background-color: rgba(255,255,255,0.7);
+        text-shadow: 0 0 1px #fff;
+    }
+
+    #error-messages {
+        font-weight: 700;
+        background-color: rgba(255,255,255,0.6);
+    }
+
+    .order {
+        background: url(/img/stacked_bottle.png) center no-repeat;
+        background-color: #e7e5e4;
+        background-size: cover;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+    }
+
+    .orderH1 {
+        font-weight: 700;
+        font-size: 3em !important;
+        color: #2B4C1D;
+    }
+
+    .control-label {
+        font-weight: 700;
+        color: #000;
+        font-size: 1.1em;
+        text-align: center;
+    }
+
+    .checkbox {
+        font-weight: 700;
+        color: #000;
+        font-size: 1.1em;
+    }
+}
+
+/* ---- Small mobiles ---- */
+@media only screen and (max-width: 320px) {
+    body {
+        font-size: 1.1em;
+    }
+
+    .title {
+        margin-top: 3vh;
+        font-size: 2em;
+    }
+
+    p {
+        font-weight: 700;
+    }
+
+    .spam {
+        font-size: 1.1em;
+        color: #2f4f4f;
+    }
+
+    .control-label {
+        font-weight: 700;
+        color: #000;
+        font-size: 1.1em;
+        text-align: center;
+    }
+
+    .checkbox {
+        font-weight: 700;
+        color: #000;
+        font-size: 1.1em;
+    }
+
+    .legend {
+        text-align: center;
+    }
+}
+
+/* ---- Medium mobiles ---- */
+@media only screen and (min-width: 321px) and (max-width: 374px) {
+    body {
+        font-size: 1em;
+    }
+
+    .title {
+        margin-top: 3vh;
+        font-size: 2em;
+    }
+
+    p {
+        font-weight: 700;
+    }
+
+    .spam {
+        font-size: 1.1em;
+        color: #2f4f4f;
+    }
+
+    .control-label {
+        font-weight: 700;
+        color: #000;
+        font-size: 1.1em;
+        text-align: center;
+    }
+
+    .checkbox {
+        font-weight: 700;
+        color: #000;
+        font-size: 1.1em;
+    }
+}
+
+/* ---- Large mobiles ---- */
+@media only screen and (min-width: 375px) and (max-width: 767px) {
+    body {
+        font-size: 1.2em;
+    }
+
+    .title {
+        margin-top: 3vh;
+        font-size: 2em;
+    }
+
+    p {
+        font-weight: 700;
+    }
+
+    .spam {
+        font-size: 1.1em;
+        color: #2f4f4f;
+    }
+
+    .control-label {
+        font-weight: 700;
+        color: #000;
+        font-size: 1.1em;
+        text-align: center;
+    }
+
+    .checkbox {
+        font-weight: 700;
+        color: #000;
+        font-size: 1.1em;
+    }
+}
+
+/*--Laptops high height--*/
+@media only screen and (min-width: 1000px)
+and (max-width: 1440px)
+and (min-height: 800px)
+and (max-height: 900px) {
+    body {
+        font-size: 1.5em;
+    }
+
+    .title {
+        margin-top: 3vh;
+        font-size: 3em;
+    }
+
+    p {
+        font-weight: 400;
+    }
+
+    .spam {
+        font-size: 1.1em;
+    }
+
+    #bottle {
+        height: 150px;
+        width: 75px;
+        position: relative;
+        bottom: 1px;
+        -webkit-animation: bounce 1s infinite;
+        animation: bounce 1s infinite;
+        -webkit-animation-delay: 3s;
+        animation-delay: 3s;
+    }
+
+    .logo {
+    /*----Only used by media queries*/
+        height: 500px;
+        width: 718px;
+    }
+
+    .numberGroup {
+        padding-top: 2vh;
+        font-size: 1.3em;
+    }
+}
+
+/*--Laptops low height--*/
+@media only screen and (min-width: 1000px)
+and (max-width: 1440px)
+and (min-height: 400px)
+and (max-height: 799px) {
+    body {
+        font-size: 1.3em;
+    }
+
+    .title {
+        margin-top: 3vh;
+        font-size: 3em;
+    }
+
+    p {
+        font-weight: 400;
+    }
+
+    .spam {
+        font-size: 1.1em;
+    }
+
+    #bottle {
+        height: 150px;
+        width: 75px;
+        position: relative;
+        bottom: 1px;
+        -webkit-animation: bounce 1s infinite;
+        animation: bounce 1s infinite;
+        -webkit-animation-delay: 3s;
+        animation-delay: 3s;
+    }
+
+    .numberGroup {
+        font-size: 1.2em;
+    }
+
+    .logo {
+    /*----Only used by media queries*/
+        height: 400px;
+        width: 575px;
+    }
+}
