@@ -1,4 +1,4 @@
-Informational page with order form for "The Pursuit of Hoppiness" (www.hoppines.uk), a bespoke bottle label design company.
+Informational page with order form for "The Pursuit of Hoppiness" (www.hoppiness.uk), a bespoke bottle label design company.
 
 Created using:
 
@@ -53,7 +53,7 @@ Future Ideas:
 - FAQ page
 - Gallery page to show previous labels, events, etc.
 - Customer login - progress bar 
-- Customer login - view (low-res) previous designs with option to re-order without £120 fee.
+- Customer login - view (low-res) previous designs with option to re-order without Â£120 fee.
 - More options on the form - image upload, adding additional name tag names.
 - Gallery page
 - Virtual microbrewery tour / microbrewery brew day page.
