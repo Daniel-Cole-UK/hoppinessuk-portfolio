@@ -64,9 +64,36 @@ $ukDate = $_POST['deliveryDate'];
 $bits = explode('/',$ukDate);
 $usDate = $bits[1].'/'.$bits[0].'/'.$bits[2];		
 $deliveryDate = db_quote(date('Y-m-d', strtotime($usDate)));
-$pale = db_quote($_POST['pale']);
-$ipa = db_quote('off');
-$stout = db_quote('off');
+if (empty($_POST['pale330'])) {
+	$pale330 = db_quote('off');
+} else {
+	$pale330 = db_quote($_POST['pale330']);
+}
+if (empty($_POST['pale500'])) {
+	$pale500 = db_quote('off');
+} else {
+	$pale500 = db_quote($_POST['pale500']);
+}
+if (empty($_POST['ipa330'])) {
+	$ipa330 = db_quote('off');
+} else {
+	$ipa330 = db_quote($_POST['ipa330']);
+}
+if (empty($_POST['ipa500'])) {
+	$ipa500 = db_quote('off');
+} else {
+	$ipa500 = db_quote($_POST['ipa500']);
+}
+if (empty($_POST['stout330'])) {
+	$stout330 = db_quote('off');
+} else {
+	$stout330 = db_quote($_POST['stout330']);
+}
+if (empty($_POST['stout500'])) {
+	$stout500 = db_quote('off');
+} else {
+	$stout500 = db_quote($_POST['stout500']);
+}		
 $quantity = db_quote($_POST['quantity']);
 $nameTag = db_quote($_POST['nameTag']);
 $nameTagText = db_quote($_POST['nameTagText']);
@@ -87,8 +114,7 @@ $address2 = db_quote($_POST['address2']);
 $requirements = db_quote($_POST['requirements']);
 
     
-// insert data into db
- $result = db_query("INSERT INTO `enquiries` (`designs`, `deliveryDate`, `pale`, `ipa`, `stout`, `quantity`, `nameTag`, `nameTagText`, `wrapping`, `ribbon`, `firstName`, `surname`, `email`, `phone`, `postcode`, `houseNum`, `flat`, `city`, `county`, `company`, `address1`, `address2`, `requirements`) VALUES (" . $designs . ", " . $deliveryDate . ", " . $pale . ", " . $ipa . ", " . $stout . ", " . $quantity . ", " . $nameTag . ", " . $nameTagText . ", " . $wrapping . ", " . $ribbon . ", " . $firstName . ", " . $surname . ", " . $email . ", " . $phone . ", " . $postcode . ", " . $houseNum . ", " . $flat . ", " . $city . ", " . $county . ", " . $company . ", " . $address1 . ", " . $address2 . ", " . $requirements . ")");
+ $result = db_query("INSERT INTO `potentialOrders` (`designs`, `deliveryDate`, `pale330`, `pale500`, `ipa330`, `ipa500`, `stout330`, `stout500`, `quantity`, `nameTag`, `nameTagText`, `wrapping`, `ribbon`, `firstName`, `surname`, `email`, `phone`, `postcode`, `houseNum`, `flat`, `city`, `county`, `company`, `address1`, `address2`, `requirements`) VALUES (" . $designs . ", " . $deliveryDate . ", " . $pale330 . ", " . $pale500 . ", " . $ipa330 . ", " . $ipa500 . ", " . $stout330 . ", " . $stout500 . ", " . $quantity . ", " . $nameTag . ", " . $nameTagText . ", " . $wrapping . ", " . $ribbon . ", " . $firstName . ", " . $surname . ", " . $email . ", " . $phone . ", " . $postcode . ", " . $houseNum . ", " . $flat . ", " . $city . ", " . $county . ", " . $company . ", " . $address1 . ", " . $address2 . ", " . $requirements . ")");
         if($result === false) {
             // if there is an insert error, return a generic error message
             $data['success'] = false;
@@ -100,17 +126,7 @@ $requirements = db_quote($_POST['requirements']);
             // add a message of success and provide a true success variable
             $data['success'] = true;
             $data['message'] = "Added";
-        }
-        
-//}
-//else
-//{
-    
-    // already exists, add message and set success to false
-    //$data['success'] = false;
-    //$errors['email'] = 'Sorry, that email address is already signed up';    
-    //$data['errors']  = $errors;
-//}   
+        }  
 
 // ----email---- // 
 
@@ -119,7 +135,7 @@ $emailRequirements = nl2br($emailRequirements);
         
 $timeStamp = date("F j, Y, g:i a");
         
-$emailFrom = "<auto@hoppiness.uk>";
+$emailFrom = "<automated@hoppiness.uk>";
  
 $emailSubject = "New Customer Enquiry: ".$timeStamp;
     
@@ -139,17 +155,35 @@ $emailBody= "
 <table>
 <tr>
 <th>No. of Designs</th>
-<th>Delivery Date</th>
-<th>Pale</th>
-<th>IPA</th>
-<th>Stout</th>
 </tr>
 <tr>
 <td>$designs</td>
+</tr>
+</table>
+<table>
+<tr>
+<th>Delivery Date</th>
+</tr>
+<tr>
 <td>$ukDate</td>
-<td>$pale</td>
-<td>$ipa</td>
-<td>$stout</td>
+</tr>
+</table>
+<table>
+<tr>
+<th>Pale 330ml</th>
+<th>Pale 330ml</th>
+<th>IPA 330ml</th>
+<th>IPA 500ml</th>
+<th>Stout 330ml</th>
+<th>Stout 500ml</th>
+</tr>
+<tr>
+<td>$pale330</td>
+<td>$pale500</td>
+<td>$ipa330</td>
+<td>$ipa500</td>
+<td>$stout330</td>
+<td>$stout500</td>
 </tr>
 </table>
 <table>
@@ -163,11 +197,19 @@ $emailBody= "
 <table>
 <tr>
 <th>No. of Name Tags</th>
-<th>Name Tag Text</th>
 </tr>
 <tr>
 <td>$nameTag</td>
+</tr>
+</table>
+<table>
+<tr>
+<th>Name Tag Text</th>
+</tr>
+<tr>
 <td>$nameTagText</td>
+</tr>
+</table>
 <table>
 <tr>
 <th>No. of Paper Wrappings</th>
@@ -184,41 +226,99 @@ $emailBody= "
 <td>$ribbon</td>
 </tr>
 </table>
+<table>
+<tr>
+<th>First Name</th>
+</tr>
+<tr>
+<td>$firstName</td>
 </tr>
 </table>
 <table>
 <tr>
-<th>First Name</th>
 <th>Surname</th>
+</tr>
+<tr>
+<td>$surname</td>
+</tr>
+</table>
+<table>
+<tr>
 <th>Email Address</th>
+</tr>
+<tr>
+<td>$email</td>
+</tr>
+</table>
+<table>
+<tr>
 <th>Phone No.</th>
 </tr>
 <tr>
-<td>$firstName</td>
-<td>$surname</td>
-<td>$email</td>
 <td>$phone</td>
 </tr>
 </table>
 <table>
 <tr>
 <th>Postcode</th>
-<th>House Name/No.</th>
-<th>Flat/Apartment No.</th>
-<th>City</th>
-<th>County</th>
-<th>Company Name</th>
-<th>Street Name</th>
-<th>Address Line 2</th>
 </tr>
 <tr>
 <td>$postcode</td>
+</tr>
+</table>
+<table>
+<tr>
+<th>House Name/No.</th>
+</tr>
+<tr>
 <td>$houseNum</td>
+</tr>
+</table>
+<table>
+<tr>
+<th>Flat/Apartment No.</th>
+</tr>
+<tr>
 <td>$flat</td>
+</tr>
+</table>
+<table>
+<tr>
+<th>City</th>
+</tr>
+<tr>
 <td>$city</td>
+</tr>
+</table>
+<table>
+<tr>
+<th>County</th>
+</tr>
+<tr>
 <td>$county</td>
+</tr>
+</table>
+<table>
+<tr>
+<th>Company Name</th>
+</tr>
+<tr>
 <td>$company</td>
+</tr>
+</table>
+<table>
+<tr>
+<th>Street Name</th>
+</tr>
+<tr>
 <td>$address1</td>
+</tr>
+</table>
+<table>
+<tr>
+<th>Address Line 2</th>
+</tr>
+<tr>
 <td>$address2</td>
 </tr>
 </table>
@@ -232,9 +332,7 @@ $emailBody= "
 </table>
 </body>
 </html>
-";
-
-		
+";		
 
 mail($to,$emailSubject,$emailBody,$headers);        
         

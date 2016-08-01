@@ -90,7 +90,6 @@ $.fn.clearForm = function() {
 		'address2' : $('input[name=address2]').val(),
         'requirements' : $('textarea[name=requirements]').val()
         };
-//alert(JSON.stringify(formData));
 // process the form
     $.ajax({
         type        : 'POST',
@@ -220,11 +219,7 @@ $('#successMessage').addClass('alertHidden');
         
 // Call failed
 .fail(function(data) {
-console.log(data);
-// Show generic error message
-//$('#email-group').addClass('has-error'); // add the error class to show red input
-//$('#error-messages').append('<div class="help-block">Oops, something went wrong. Please try again later.</div>');
-//$('#error-messages').addClass('has-error');        
+     
 });        
         
         // stop the form from submitting and refreshing the page
